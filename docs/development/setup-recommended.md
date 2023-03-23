@@ -282,7 +282,7 @@ git remote add -f upstream https://github.com/zulip/zulip.git
 
 This will create a 'zulip' directory and download the Zulip code into it.
 
-Don't forget to replace YOURUSERNAME with your Git username. You will see
+Don't forget to replace YOURUSERNAME with your GitHub username. You will see
 something like:
 
 ```console

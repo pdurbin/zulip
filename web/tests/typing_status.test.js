@@ -6,6 +6,7 @@ const {mock_esm, set_global, zrequire} = require("./lib/namespace");
 const {run_test} = require("./lib/test");
 
 const compose_pm_pill = mock_esm("../src/compose_pm_pill");
+const compose_state = mock_esm("../src/compose_state");
 
 const typing = zrequire("typing");
 const typing_status = zrequire("../shared/src/typing_status");
@@ -265,6 +266,7 @@ run_test("basics", ({override, override_rewire}) => {
     // and typing_status.state.current_recipient are the same
 
     override(compose_pm_pill, "get_user_ids_string", () => "1,2,3");
+    override(compose_state, "get_message_type", () => "private");
     typing_status.state.current_recipient = typing.get_recipient();
 
     const call_count = {

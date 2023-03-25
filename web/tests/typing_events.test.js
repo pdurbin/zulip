@@ -54,8 +54,8 @@ run_test("render_notifications_for_narrow", ({override, mock_template}) => {
 
     // Having only two(<MAX_USERS_TO_DISPLAY_NAME) typists, both of them
     // should be rendered but not 'Several people are typing…'
-    typing_data.add_typist(group, anna.user_id);
-    typing_data.add_typist(group, vronsky.user_id);
+    typing_data.add_typist(group, "mykey1", anna.user_id, "private");
+    typing_data.add_typist(group, "mykey2", vronsky.user_id, "private");
     typing_events.render_notifications_for_narrow();
     assert.ok($typing_notifications.visible());
     assert.ok($typing_notifications.html().includes(`${anna.full_name} is typing…`));
